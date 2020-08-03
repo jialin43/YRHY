@@ -4,7 +4,7 @@
 ## Mongodb
 ### Mongodb启动
 ```
-mongod --dbpath /var/lib/mongo --logpath /var/log/mongodb/mongod.log  --bind_ip=120.95.133.8 --port=27017
+mongod --dbpath /var/lib/mongo --logpath /var/log/mongodb/mongod.log  --bind_ip=120.95.133.8 --port=27017 --fork
 ```
 ### Mongodb 连接
 ```
