@@ -1,11 +1,16 @@
-package cn.edu.nwafu.hjpg;
+package cn.edu.nwafu.hjpg.entity;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "User")
 public class User {
-
+  @Id
   private String id;
   private String password;
   private long type;
+  @Indexed
   private String username;
 
 
