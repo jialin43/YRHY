@@ -1,5 +1,6 @@
 package cn.edu.nwafu.hjpg.controller;
 
+import cn.edu.nwafu.hjpg.common.HttpResult;
 import cn.edu.nwafu.hjpg.entity.User;
 import cn.edu.nwafu.hjpg.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -28,22 +29,22 @@ public class UserController {
 
     @RequestMapping(value = "/",method = RequestMethod.POST)
     @ResponseBody
-    public String addUser(User user) {
-        return userService.addUser(user);
+    public HttpResult addUser(User user) {
+        return HttpResult.ok(userService.addUser(user));
     }
 
 
     @RequestMapping(value = "/{id}",method = RequestMethod.PUT)
     @ResponseBody
-    public String updateUser(User user) {
-        return userService.updateUser(user);
+    public HttpResult updateUser(User user) {
+        return HttpResult.ok(userService.updateUser(user));
     }
 
     @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
     @ResponseBody
-    public String delUser(User user) {
+    public HttpResult delUser(User user) {
         userService.delUser(user);
-        return "OK";
+        return HttpResult.ok();
 
     }
 

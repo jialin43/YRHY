@@ -1,6 +1,7 @@
 package cn.edu.nwafu.hjpg.controller;
 
 
+import cn.edu.nwafu.hjpg.common.HttpResult;
 import cn.edu.nwafu.hjpg.pojo.Element;
 import cn.edu.nwafu.hjpg.service.ElementService;
 import cn.edu.nwafu.hjpg.service.RLService;
@@ -56,30 +57,30 @@ public class ElementController {
     }
     @PostMapping(value = "/")
     @ResponseBody
-    public String addElement(@RequestParam String type, Element element) {
+    public HttpResult addElement(@RequestParam String type, Element element) {
         if(type==null){
             type = "rl";
         }
-        return elementService.addElement(type, element);
+        return HttpResult.ok(elementService.addElement(type, element));
     }
 
     @PutMapping("/{id}")
     @ResponseBody
-    public String updateElement(@RequestParam String type,Element element) {
+    public HttpResult updateElement(@RequestParam String type,Element element) {
         if(type==null){
             type = "rl";
         }
-        return elementService.updateElement(type,element);
+        return HttpResult.ok(elementService.updateElement(type,element));
     }
 
     @DeleteMapping("/{id}")
     @ResponseBody
-    public int delElement(@RequestParam String type,Element element) {
+    public HttpResult delElement(@RequestParam String type,Element element) {
         if(type==null){
             type = "rl";
         }
         elementService.delElement(type, element);
-        return 0;
+        return HttpResult.ok();
     }
 
 }
